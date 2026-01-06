@@ -11,6 +11,7 @@ import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.random.Random
+import kotlin.repeat
 
 /**
  * ViewModel para Actividad 5: Descargador de Archivos
@@ -57,8 +58,8 @@ class FileDownloaderViewModel : ViewModel() {
         _isRunning.value = true
         downloadJobs.clear()
         
-        appendOutput("📥 Iniciando descargas concurrentes...")
-        appendOutput("ℹ️ ${files.size} archivos, cada uno con su launch")
+        appendOutput(" Iniciando descargas concurrentes...")
+        appendOutput(" ${files.size} archivos, cada uno con su launch")
         appendOutput("")
         
         var completedFiles = 0
@@ -71,9 +72,9 @@ class FileDownloaderViewModel : ViewModel() {
                     downloadFile(file)
                     completedFiles++
                     updateProgress(completedFiles, totalFiles)
-                    appendOutput("✓ ${file.name} completado")
+                    appendOutput(" ${file.name} completado")
                 } catch (e: Exception) {
-                    appendOutput("❌ ${file.name} cancelado")
+                    appendOutput(" ${file.name} cancelado")
                 }
             }
             downloadJobs.add(job)
@@ -87,11 +88,11 @@ class FileDownloaderViewModel : ViewModel() {
                 
                 if (completedFiles == totalFiles) {
                     appendOutput("")
-                    appendOutput("🎉 Todas las descargas finalizadas!")
+                    appendOutput(" Todas las descargas finalizadas!")
                     _status.value = "Finalizado"
                 } else {
                     appendOutput("")
-                    appendOutput("⚠️ Descargas canceladas")
+                    appendOutput(" Descargas canceladas")
                     _status.value = "Cancelado"
                 }
             } finally {
@@ -106,7 +107,7 @@ class FileDownloaderViewModel : ViewModel() {
      */
     fun cancelDownloads() {
         appendOutput("")
-        appendOutput("🛑 Cancelando todas las descargas...")
+        appendOutput(" Cancelando todas las descargas...")
         
         // Cancelar todos los Jobs
         downloadJobs.forEach { it.cancel() }
@@ -116,19 +117,26 @@ class FileDownloaderViewModel : ViewModel() {
      * Simula descarga de un archivo con progreso
      */
     private suspend fun downloadFile(file: FileInfo) {
-        appendOutput("⬇️ Descargando ${file.name} (${file.chunks} chunks)...")
-        
-        repeat(file.chunks) { chunk ->
-            // Verificar si la corutina sigue activa
-            if (!isActive) {
-                throw Exception("Cancelled")
+        viewModelScope.launch {
+            appendOutput("⬇️ Descargando ${file.name} (${file.chunks} chunks)...")
+
+            repeat(file.chunks) { chunk ->
+                // Verificar si la corutina sigue activa
+                while (isActive) { // This is a common pattern for long-running tasks
+                    // Perform a piece of the download
+                    println("Downloading chunk...")
+                    delay(500) // Simulate work
+
+                    // You can also check it with a simple 'if'
+                    if (!isActive) {
+                        println("Coroutine was cancelled, stopping download.")
+                        break
+                    }
+                }
+
+                val progress = ((chunk + 1) * 100 / file.chunks)
+                appendOutput("   ${file.name}: ${progress}%")
             }
-            
-            // Simular tiempo de descarga por chunk
-            delay(500)
-            
-            val progress = ((chunk + 1) * 100 / file.chunks)
-            appendOutput("   ${file.name}: ${progress}%")
         }
     }
     
