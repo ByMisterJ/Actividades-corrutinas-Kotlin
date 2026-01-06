@@ -20,6 +20,36 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <activity
+            android:name=".activities.SequentialTasksActivity"
+            android:label="@string/activity_1_title"
+            android:parentActivityName=".MainActivity" />
+        
+        <activity
+            android:name=".activities.TimerActivity"
+            android:label="@string/activity_2_title"
+            android:parentActivityName=".MainActivity" />
+        
+        <activity
+            android:name=".activities.ApiSimulationActivity"
+            android:label="@string/activity_3_title"
+            android:parentActivityName=".MainActivity" />
+        
+        <activity
+            android:name=".activities.WeatherForecastActivity"
+            android:label="@string/activity_4_title"
+            android:parentActivityName=".MainActivity" />
+        
+        <activity
+            android:name=".activities.FileDownloaderActivity"
+            android:label="@string/activity_5_title"
+            android:parentActivityName=".MainActivity" />
+        
+        <activity
+            android:name=".activities.NotificationSystemActivity"
+            android:label="@string/activity_6_title"
+            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>
