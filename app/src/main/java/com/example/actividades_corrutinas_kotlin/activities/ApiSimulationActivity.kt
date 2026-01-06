@@ -10,15 +10,6 @@ import com.example.actividades_corrutinas_kotlin.R
 import com.example.actividades_corrutinas_kotlin.viewmodels.ApiSimulationViewModel
 import kotlinx.coroutines.launch
 
-/**
- * Actividad 3: Simulación de API Lenta
- * 
- * Conceptos practicados:
- * - suspend fun en capa de datos/repositorio
- * - Separación de responsabilidades (Repository pattern)
- * - Manejo de resultados (success/error)
- * - delay para simular latencia de red
- */
 class ApiSimulationActivity : AppCompatActivity() {
     
     private lateinit var viewModel: ApiSimulationViewModel

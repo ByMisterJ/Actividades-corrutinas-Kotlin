@@ -10,15 +10,6 @@ import com.example.actividades_corrutinas_kotlin.R
 import com.example.actividades_corrutinas_kotlin.viewmodels.WeatherForecastViewModel
 import kotlinx.coroutines.launch
 
-/**
- * Actividad 4: Pronóstico del Clima Concurrente
- * 
- * Conceptos practicados:
- * - async/await para ejecución concurrente
- * - Deferred<T> como "promesa" de resultado futuro
- * - measureTimeMillis para medir tiempo de ejecución
- * - Comparación: secuencial vs concurrente
- */
 class WeatherForecastActivity : AppCompatActivity() {
     
     private lateinit var viewModel: WeatherForecastViewModel

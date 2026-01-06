@@ -9,15 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.actividades_corrutinas_kotlin.R
 import com.example.actividades_corrutinas_kotlin.viewmodels.FileDownloaderViewModel
 
-/**
- * Actividad 5: Descargador de Archivos (Simulado)
- * 
- * Conceptos practicados:
- * - Múltiples launch para tareas paralelas
- * - Job.join() para esperar finalización
- * - Cancelación de múltiples jobs
- * - Tracking de progreso por tarea y total
- */
+
 class FileDownloaderActivity : AppCompatActivity() {
     
     private lateinit var viewModel: FileDownloaderViewModel

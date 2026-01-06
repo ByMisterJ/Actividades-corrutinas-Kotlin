@@ -8,15 +8,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.actividades_corrutinas_kotlin.R
 import com.example.actividades_corrutinas_kotlin.viewmodels.NotificationSystemViewModel
 
-/**
- * Actividad 6: Sistema de Notificaciones
- * 
- * Conceptos practicados:
- * - while(isActive) para bucles cancelables
- * - Job lifecycle (start/stop)
- * - Corutinas de larga duración
- * - Envío periódico de eventos
- */
 class NotificationSystemActivity : AppCompatActivity() {
     
     private lateinit var viewModel: NotificationSystemViewModel

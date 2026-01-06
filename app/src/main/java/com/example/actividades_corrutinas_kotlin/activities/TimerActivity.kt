@@ -8,16 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.actividades_corrutinas_kotlin.R
 import com.example.actividades_corrutinas_kotlin.viewmodels.TimerViewModel
 
-/**
- * Actividad 2: Temporizador No Bloqueante
- * 
- * Conceptos practicados:
- * - launch: Inicia una corutina sin bloquear el hilo actual
- * - Job: Referencia a la corutina para poder cancelarla
- * - delay: Suspende la corutina sin bloquear el hilo
- * - Cancelación con Job.cancel()
- * - viewModelScope para gestión automática del ciclo de vida
- */
+
 class TimerActivity : AppCompatActivity() {
     
     private lateinit var viewModel: TimerViewModel

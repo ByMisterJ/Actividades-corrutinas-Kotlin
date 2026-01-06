@@ -10,16 +10,7 @@ import com.example.actividades_corrutinas_kotlin.R
 import com.example.actividades_corrutinas_kotlin.viewmodels.SequentialTasksViewModel
 import kotlinx.coroutines.launch
 
-/**
- * Actividad 1: Simulador de Tareas Secuenciales
- * 
- * Conceptos practicados:
- * - suspend fun
- * - delay para simular operaciones asíncronas
- * - Ejecución secuencial de corutinas
- * - lifecycleScope para vincular corutinas al ciclo de vida
- * - runBlocking (explicado en documentación, NO usado aquí en UI)
- */
+
 class SequentialTasksActivity : AppCompatActivity() {
     
     private lateinit var viewModel: SequentialTasksViewModel
