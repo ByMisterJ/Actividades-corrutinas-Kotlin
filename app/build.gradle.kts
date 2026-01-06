@@ -1,3 +1,5 @@
+// Note: Direct plugin IDs used instead of version catalog to support
+// alternative repository mirrors in environments with network restrictions
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")

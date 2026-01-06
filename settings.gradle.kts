@@ -7,6 +7,8 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
+// Note: Using PREFER_SETTINGS to support repository mirrors in environments
+// with network restrictions to dl.google.com
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
     repositories {
