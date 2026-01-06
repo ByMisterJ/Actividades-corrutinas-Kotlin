@@ -22,9 +22,9 @@ Una colección de 6 actividades prácticas para aprender corrutinas en Kotlin co
 
 ## 🛠️ Requisitos
 
-- Android Studio Arctic Fox o superior
-- Kotlin 1.9.0+
-- Android SDK 24+
+- Android Studio Otter
+- Kotlin 1.17.0+
+- Android SDK 36+
 - Gradle 8.1+
 
 ## 📦 Dependencias
